@@ -1,7 +1,7 @@
 /**
  * @name SelectFormForAdminRank
  * @author Geront
- * @authorId 
+ * @authorId @geront
  * @description Формы для отчетов
  * @source https://github.com/xXGerontXx/GerontPRO/blob/main/SelectFormForAdminRank.plugin.js
  * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/SelectFormForAdminRank.plugin.js
