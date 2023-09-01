@@ -20,7 +20,7 @@ const config = {
   urls: [
     "https://github.com/xXGerontXx/GerontPRO/blob/main/configs.json",
     "https://github.com/xXGerontXx/GerontPRO/blob/main/AdminRank.plugin.js",
-    "https://github.com/xXGerontXx/GerontPRO/blob/main/selections.json",
+    "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/selections.json",
   ],
 }
 
