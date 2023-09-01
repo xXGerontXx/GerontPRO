@@ -1,8 +1,8 @@
 /**
  * @name SelectFormForAdminRank
- * @author Котяра
- * @authorId 701903800302305371
- * @description Готовые формы для админ-рангов
+ * @author Geront
+ * @authorId 
+ * @description Формы для отчетов
  * @source https://github.com/KotyaraDev/betterdiscord-mods/blob/main/SelectFormForAdminRank.plugin.js
  * @updateUrl https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/SelectFormForAdminRank.plugin.js
  * @website https://github.com/KotyaraDev/betterdiscord-mods/tree/main/
@@ -391,7 +391,7 @@ function load() {
             BdApi.showToast("Все формы загружены!", { type: "info" });
           }, 3000);
         } else {
-          BdApi.showToast(`Формы не загружены!\nСообщите об этом разработчику: @kotyarakryt`, { type: "error" });
+          BdApi.showToast(`Формы не загружены!\nСообщите об этом разработчику: @geront`, { type: "error" });
         }
       }
     );
