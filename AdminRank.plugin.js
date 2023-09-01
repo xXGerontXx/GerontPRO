@@ -3,9 +3,9 @@
  * @author Geront
  * @authorId 701903800302305371
  * @description Помошник для заполнения отчетов
- * @source https://github.com/xXGerontXx/Geront/blob/main/AdminRank.plugin.js
+ * @source https://github.com/xXGerontXx/GerontPRO/blob/main/AdminRank.plugin.js
  * @updateUrl https://raw.githubusercontent.com/xXGerontXx/Geront/main/AdminRank.plugin.js?token=GHSAT0AAAAAACHBOGWZP7KAJYTLID4EZFFSZHSFXWQ
- * @website https://github.com/xXGerontXx/Geront
+ * @website https://github.com/xXGerontXx/GerontPRO
  * @version 1.0
  */
 
@@ -18,8 +18,8 @@ const config = {
     "base": "1.0",
   },
   urls: [
-    "https://github.com/xXGerontXx/Geront/blob/main/configs.json",
-    "https://github.com/xXGerontXx/Geront/blob/main/AdminRank.plugin.js",
+    "https://github.com/xXGerontXx/GerontPRO/blob/main/configs.json",
+    "https://github.com/xXGerontXx/GerontPRO/blob/main/AdminRank.plugin.js",
     "https://github.com/xXGerontXx/GerontPRO/blob/main/selections.json",
   ],
 }
