@@ -15,7 +15,7 @@ const path = require('path');
 const request = require("request");
 const config = {
   version: {
-    "base": "1.0",
+    "base": "1.1",
   },
   urls: [
     "https://github.com/xXGerontXx/GerontPRO/blob/main/configs.json",
