@@ -4,7 +4,7 @@
  * @authorId 
  * @description Формы для отчетов
  * @source https://github.com/xXGerontXx/GerontPRO/blob/main/SelectFormForAdminRank.plugin.js
- * @updateUrl https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/SelectFormForAdminRank.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/SelectFormForAdminRank.plugin.js
  * @website https://github.com/xXGerontXx/GerontPRO
  * @version 1.3
  */
