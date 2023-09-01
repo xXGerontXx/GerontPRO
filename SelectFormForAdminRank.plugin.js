@@ -3,9 +3,9 @@
  * @author Geront
  * @authorId 
  * @description Формы для отчетов
- * @source https://github.com/KotyaraDev/betterdiscord-mods/blob/main/SelectFormForAdminRank.plugin.js
+ * @source https://github.com/xXGerontXx/GerontPRO/blob/main/SelectFormForAdminRank.plugin.js
  * @updateUrl https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/SelectFormForAdminRank.plugin.js
- * @website https://github.com/KotyaraDev/betterdiscord-mods/tree/main/
+ * @website https://github.com/xXGerontXx/GerontPRO
  * @version 1.3
  */
 
@@ -18,9 +18,9 @@ const config = {
     "base": "1.3",
   },
   urls: [
-    "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/configs.json",
-    "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/SelectFormForAdminRank.plugin.js",
-    "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/selections.json",
+    "https://github.com/xXGerontXx/GerontPRO/blob/main/configs.json",
+    "https://github.com/xXGerontXx/GerontPRO/blob/main/SelectFormForAdminRank.plugin.js",
+    "https://github.com/xXGerontXx/GerontPRO/blob/main/selections.json",
   ],
 }
 
