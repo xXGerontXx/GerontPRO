@@ -4,7 +4,7 @@
  * @authorId 701903800302305371
  * @description Помошник для заполнения отчетов
  * @source https://github.com/xXGerontXx/GerontPRO/blob/main/AdminRank.plugin.js
- * @updateUrl https://raw.githubusercontent.com/xXGerontXx/Geront/main/AdminRank.plugin.js?token=GHSAT0AAAAAACHBOGWZP7KAJYTLID4EZFFSZHSFXWQ
+ * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/AdminRank.plugin.js
  * @website https://github.com/xXGerontXx/GerontPRO
  * @version 1.0
  */
