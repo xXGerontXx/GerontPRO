@@ -18,9 +18,9 @@ const config = {
     "base": "1.3",
   },
   urls: [
-    "https://github.com/xXGerontXx/GerontPRO/blob/main/configs.json",
-    "https://github.com/xXGerontXx/GerontPRO/blob/main/SelectFormForAdminRank.plugin.js",
-    "https://github.com/xXGerontXx/GerontPRO/blob/main/selections.json",
+    "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/configs.json",
+    "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/SelectFormForAdminRank.plugin.js",
+    "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/selections.json",
   ],
 }
 
