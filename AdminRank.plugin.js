@@ -1,12 +1,12 @@
 /**
  * @name AdminRank
  * @author Geront
- * @authorId 701903800302305371
+ * @authorId 701903800302305370
  * @description Помошник для заполнения отчетов
  * @source https://github.com/xXGerontXx/GerontPRO/blob/main/AdminRank.plugin.js
  * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/AdminRank.plugin.js
  * @website https://github.com/xXGerontXx/GerontPRO
- * @version 1.0
+ * @version 1.1
  */
 
 "use strict";
