@@ -1,12 +1,12 @@
 /**
- * @name AdminRank
- * @author Geront
- * @authorId 
- * @description Помошник для заполнения отчетов
- * @source https://github.com/xXGerontXx/GerontPRO/blob/main/AdminRank.plugin.js
- * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/AdminRank.plugin.js
- * @website https://github.com/xXGerontXx/GerontPRO
- * @version 1.1
+ * @name SelectFormForAdminRank
+ * @author Котяра
+ * @authorId 701903800302305371
+ * @description Готовые формы для админ-рангов
+ * @source https://github.com/KotyaraDev/betterdiscord-mods/blob/main/SelectFormForAdminRank.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/SelectFormForAdminRank.plugin.js
+ * @website https://github.com/KotyaraDev/betterdiscord-mods/tree/main/
+ * @version 1.3
  */
 
 "use strict";
@@ -15,12 +15,12 @@ const path = require('path');
 const request = require("request");
 const config = {
   version: {
-    "base": "1.1",
+    "base": "1.3",
   },
   urls: [
-    "https://github.com/xXGerontXx/GerontPRO/blob/main/configs.json",
-    "https://github.com/xXGerontXx/GerontPRO/blob/main/AdminRank.plugin.js",
-    "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/selections.json",
+    "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/configs.json",
+    "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/SelectFormForAdminRank.plugin.js",
+    "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/selections.json",
   ],
 }
 
@@ -226,7 +226,7 @@ function load() {
         const changelogs = versionData.changelogs['select-forms'];
         if (old_version < new_version) {
           BdApi.showConfirmationModal(
-            "AdminRank | Новое обновление!",
+            "SelectFormForAdminRank | Новое обновление!",
             `Ваша версия: \`${old_version}\` | Новая версия: \`${new_version}\`\n\n \n\n\`СПИСОК ИЗМЕНЕНИЙ:\`\n\n${changelogs}`,
             {
               confirmText: "Установить",
@@ -244,7 +244,7 @@ function load() {
 
                     if (response.statusCode == 200) {
                       fs.writeFileSync(
-                        path.join(BdApi.Plugins.folder, "AdminRank.plugin.js"),
+                        path.join(BdApi.Plugins.folder, "SelectFormForAdminRank.plugin.js"),
                         body
                       );
                       
@@ -295,8 +295,8 @@ function load() {
 
           
           // CUSTOM FORM`S
-          if (fs.existsSync(BdApi.Plugins.folder+"\\"+"AdminRank.config.json")) {
-            fs.readFile(BdApi.Plugins.folder+"\\"+"AdminRank.config.json", 'utf8', function(err, data) {
+          if (fs.existsSync(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json")) {
+            fs.readFile(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json", 'utf8', function(err, data) {
               if (err) {
                 setTimeout(() => {
                   BdApi.showToast("Кастомные форма не загружены!\n"+err, { type: "error" })
@@ -341,7 +341,7 @@ function load() {
             }
             
             // LOAD CUSTOM FORM`S
-            fs.writeFile(BdApi.Plugins.folder+"\\"+"AdminRank.config.json", JSON.stringify(standartCustomForm, null, 2), (err) => {
+            fs.writeFile(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json", JSON.stringify(standartCustomForm, null, 2), (err) => {
               if (err) {
                 setTimeout(() => {
                   BdApi.showToast("Ошибка при создании файла", { type: "error" })
@@ -355,7 +355,7 @@ function load() {
             });
 
             setTimeout(() => {
-              fs.readFile(BdApi.Plugins.folder+"\\"+"AdminRank.config.json", 'utf8', function(err, data) {
+              fs.readFile(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json", 'utf8', function(err, data) {
                 if (err) {
                   setTimeout(() => {
                     BdApi.showToast("Кастомные форма не загружены!\n"+err, { type: "error" })
@@ -391,7 +391,7 @@ function load() {
             BdApi.showToast("Все формы загружены!", { type: "info" });
           }, 3000);
         } else {
-          BdApi.showToast(`Формы не загружены!\nСообщите об этом разработчику: @geront`, { type: "error" });
+          BdApi.showToast(`Формы не загружены!\nСообщите об этом разработчику: @kotyarakryt`, { type: "error" });
         }
       }
     );
@@ -424,7 +424,7 @@ function start() {
       (n) => Array.isArray(n?.children) && n.children.some((c) => c?.props?.className?.startsWith("attachButton"))
     )?.children;
     if (!chatBar) {
-      console.error("AdminRank: Couldn't find ChatBar component in React tree");
+      console.error("SelectFormForAdminRank: Couldn't find ChatBar component in React tree");
       return;
     }
     const buttons = findInReactTree(chatBar, (n) => n?.props?.showCharacterCount);
