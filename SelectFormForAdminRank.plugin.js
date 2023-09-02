@@ -6,7 +6,7 @@
  * @source https://github.com/xXGerontXx/GerontPRO/blob/main/SelectFormForAdminRank.plugin.js
  * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/SelectFormForAdminRank.plugin.js
  * @website https://github.com/xXGerontXx/GerontPRO
- * @version 1.3
+ * @version 1.4
  */
 
 "use strict";
@@ -15,7 +15,7 @@ const path = require('path');
 const request = require("request");
 const config = {
   version: {
-    "base": "1.3",
+    "base": "1.4",
   },
   urls: [
     "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/configs.json",
