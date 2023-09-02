@@ -1,5 +1,5 @@
 /**
- * @name Admin Assistant
+ * @name AdminAssistant
  * @author Geront
  * @authorId 303436607204098058
  * @description Формы для отчетов
@@ -391,7 +391,7 @@ function load() {
             BdApi.showToast("Все формы загружены!", { type: "info" });
           }, 3000);
         } else {
-          BdApi.showToast(`Формы не загружены!\nСообщите об этом разработчику: @kotyarakryt`, { type: "error" });
+          BdApi.showToast(`Формы не загружены!\nСообщите об этом разработчику: @geront`, { type: "error" });
         }
       }
     );
