@@ -1,11 +1,11 @@
 /**
  * @name SelectFormForAdminRank
- * @author Котяра
- * @authorId 701903800302305371
- * @description Готовые формы для админ-рангов
- * @source https://github.com/KotyaraDev/betterdiscord-mods/blob/main/SelectFormForAdminRank.plugin.js
- * @updateUrl https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/SelectFormForAdminRank.plugin.js
- * @website https://github.com/KotyaraDev/betterdiscord-mods/tree/main/
+ * @author Geront
+ * @authorId 303436607204098058
+ * @description Формы для отчетов
+ * @source https://github.com/xXGerontXx/GerontPRO/blob/main/SelectFormForAdminRank.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/SelectFormForAdminRank.plugin.js
+ * @website https://github.com/xXGerontXx/GerontPRO
  * @version 1.4
  */
 
@@ -18,9 +18,9 @@ const config = {
     "base": "1.4",
   },
   urls: [
-    "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/configs.json",
-    "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/SelectFormForAdminRank.plugin.js",
-    "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/selections.json",
+    "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/configs.json",
+    "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/SelectFormForAdminRank.plugin.js",
+    "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/selections.json",
   ],
 }
 
