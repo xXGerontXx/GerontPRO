@@ -3,8 +3,8 @@
  * @author Geront
  * @authorId 303436607204098058
  * @description Формы для отчетов
- * @source https://github.com/xXGerontXx/GerontPRO/blob/main/AdminAssistant.plugin.js
- * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/AdminAssistant.plugin.js
+ * @source https://github.com/xXGerontXx/GerontPRO/blob/main/SelectFormForAdminRank.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/SelectFormForAdminRank.plugin.js
  * @website https://github.com/xXGerontXx/GerontPRO
  * @version 1.4
  */
@@ -19,7 +19,7 @@ const config = {
   },
   urls: [
     "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/configs.json",
-    "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/AdminAssistant.plugin.js",
+    "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/SelectFormForAdminRank.plugin.js",
     "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/selections.json",
   ],
 }
