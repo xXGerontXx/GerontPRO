@@ -6,7 +6,7 @@
  * @source https://github.com/KotyaraDev/betterdiscord-mods/blob/main/SelectFormForAdminRank.plugin.js
  * @updateUrl https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/SelectFormForAdminRank.plugin.js
  * @website https://github.com/KotyaraDev/betterdiscord-mods/tree/main/
- * @version 1.3
+ * @version 1.4
  */
 
 "use strict";
@@ -15,7 +15,7 @@ const path = require('path');
 const request = require("request");
 const config = {
   version: {
-    "base": "1.3",
+    "base": "1.4",
   },
   urls: [
     "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main/configs.json",
