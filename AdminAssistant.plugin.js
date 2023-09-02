@@ -424,7 +424,7 @@ function start() {
       (n) => Array.isArray(n?.children) && n.children.some((c) => c?.props?.className?.startsWith("attachButton"))
     )?.children;
     if (!chatBar) {
-      console.error("SelectFormForAdminRank: Couldn't find ChatBar component in React tree");
+      console.error("AdminAssistant: Couldn't find ChatBar component in React tree");
       return;
     }
     const buttons = findInReactTree(chatBar, (n) => n?.props?.showCharacterCount);
