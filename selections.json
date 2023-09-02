@@ -2,7 +2,7 @@
     "standart": {
         "data": [
             {
-                "title": "----------------- [ АДМИН-РАНГИ ] ------------------",
+                "title": "----------------- [ Admin-Command's ] ------------------",
                 "value": "---",
                 "disabled": true
             },
@@ -47,7 +47,7 @@
                 "disabled": false
             },
             {
-                "title": "--------------------- [ КАСТОМ ] ----------------------",
+                "title": "--------------------- [ Custom команды ] ----------------------",
                 "value": "---",
                 "disabled": true
             }
@@ -57,24 +57,8 @@
     "servers": {
         "data": [
             {
-                "name": "Мухосранск RP",
+                "name": "Geront",
                 "disabled": false
-            },
-            {
-                "name": "SCP RP | [ НЕДОСТУПНО ]",
-                "disabled": true
-            },
-            {
-                "name": "WW2 RP | [ НЕДОСТУПНО ]",
-                "disabled": true
-            },
-            {
-                "name": "Тюрьма RP | [ НЕДОСТУПНО ]",
-                "disabled": true
-            },
-            {
-                "name": "Cyberpunk RP | [ НЕДОСТУПНО ]",
-                "disabled": true
             }
         ]
     }
