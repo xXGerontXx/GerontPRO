@@ -226,7 +226,7 @@ function load() {
         const changelogs = versionData.changelogs['select-forms'];
         if (old_version < new_version) {
           BdApi.showConfirmationModal(
-            "SelectFormForAdminRank | Новое обновление!",
+            "AdminAssistant | Новое обновление!",
             `Ваша версия: \`${old_version}\` | Новая версия: \`${new_version}\`\n\n \n\n\`СПИСОК ИЗМЕНЕНИЙ:\`\n\n${changelogs}`,
             {
               confirmText: "Установить",
@@ -295,8 +295,8 @@ function load() {
 
           
           // CUSTOM FORM`S
-          if (fs.existsSync(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json")) {
-            fs.readFile(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json", 'utf8', function(err, data) {
+          if (fs.existsSync(BdApi.Plugins.folder+"\\"+"AdminAssistant.config.json")) {
+            fs.readFile(BdApi.Plugins.folder+"\\"+"AdminAssistant.config.json", 'utf8', function(err, data) {
               if (err) {
                 setTimeout(() => {
                   BdApi.showToast("Кастомные форма не загружены!\n"+err, { type: "error" })
@@ -341,7 +341,7 @@ function load() {
             }
             
             // LOAD CUSTOM FORM`S
-            fs.writeFile(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json", JSON.stringify(standartCustomForm, null, 2), (err) => {
+            fs.writeFile(BdApi.Plugins.folder+"\\"+"AdminAssistant.config.json", JSON.stringify(standartCustomForm, null, 2), (err) => {
               if (err) {
                 setTimeout(() => {
                   BdApi.showToast("Ошибка при создании файла", { type: "error" })
@@ -355,7 +355,7 @@ function load() {
             });
 
             setTimeout(() => {
-              fs.readFile(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json", 'utf8', function(err, data) {
+              fs.readFile(BdApi.Plugins.folder+"\\"+"AdminAssistant.config.json", 'utf8', function(err, data) {
                 if (err) {
                   setTimeout(() => {
                     BdApi.showToast("Кастомные форма не загружены!\n"+err, { type: "error" })
@@ -424,7 +424,7 @@ function start() {
       (n) => Array.isArray(n?.children) && n.children.some((c) => c?.props?.className?.startsWith("attachButton"))
     )?.children;
     if (!chatBar) {
-      console.error("SelectFormForAdminRank: Couldn't find ChatBar component in React tree");
+      console.error("AdminAssistant: Couldn't find ChatBar component in React tree");
       return;
     }
     const buttons = findInReactTree(chatBar, (n) => n?.props?.showCharacterCount);
