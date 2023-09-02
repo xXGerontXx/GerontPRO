@@ -1,5 +1,5 @@
 /**
- * @name SelectFormForAdminRank
+ * @name Admin Assistant
  * @author Geront
  * @authorId 303436607204098058
  * @description Формы для отчетов
