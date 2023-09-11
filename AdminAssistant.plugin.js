@@ -6,7 +6,7 @@
  * @source https://github.com/xXGerontXx/GerontPRO/blob/main/AdminAssistant.plugin.js
  * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/AdminAssistant.plugin.js
  * @website https://github.com/xXGerontXx/GerontPRO
- * @version 2.2
+ * @version 2.3
  */
 
 "use strict";
@@ -15,7 +15,7 @@ const path = require('path');
 const request = require("request");
 const config = {
   version: {
-    "base": "2.2",
+    "base": "2.3",
   },
   urls: [
     "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/configs.json",
