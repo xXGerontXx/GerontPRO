@@ -122,7 +122,7 @@
                 "disabled": true
             },
             {
-                "title": "Выдача банов",
+                "title": "Выдача банов | НЕДОСТУПНО",
                 "value": "1. None",
                 "disabled": true
             },
@@ -141,11 +141,11 @@
                 "disabled": false
             },
             {
-                "name": "None| НЕДОСТУПНО",
+                "name": "None | НЕДОСТУПНО",
                 "disabled": true
             },
             {
-                "name": "None| НЕДОСТУПНО",
+                "name": "None | НЕДОСТУПНО",
                 "disabled": true
             },
             {
