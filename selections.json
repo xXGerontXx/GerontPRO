@@ -2,7 +2,7 @@
     "standart": {
         "data": [
             {
-                "title": "----------------- [ Admin-Command' ] ------------------",
+                "title": "----------------- [ Admin-Command's ] ------------------",
                 "value": "---",
                 "disabled": true
             },
@@ -52,7 +52,17 @@
                 "disabled": false
             },
             {
-                "title": "------------------ [ Custom Command's ] -------------------",
+                "title": "---------------------- [ Other ] ----------------------",
+                "value": "---",
+                "disabled": true
+            },
+            {
+                "title": "Выдача банов | НЕДОСТУПНО",
+                "value": "1. None",
+                "disabled": true
+            },
+            {
+                "title": "--------------------- [ Custom Command's ] ----------------------",
                 "value": "---",
                 "disabled": true
             }
@@ -62,7 +72,130 @@
     "servers": {
         "data": [
             {
-                "name": "Geront",
+                "name": "DarkRP",
+                "disabled": false
+            },
+            {
+                "name": "None",
+                "disabled": true
+            },
+            {
+                "name": "None",
+                "disabled": true
+            },
+            {
+                "name": "None | НЕДОСТУПНО",
+                "disabled": true
+            }
+        ]
+    },
+
+    "post": {
+        "data": [
+            {
+                "name": "Игрок",
+                "disabled": false
+            },
+            {
+                "name": "Модератор",
+                "disabled": false
+            },
+            {
+                "name": "Администратор",
+                "disabled": false
+            },
+            {
+                "name": "Администратор Повышенной Категории",
+                "disabled": false
+            },
+            {
+                "name": "Кандидат на ЛС",
+                "disabled": false
+            },
+            {
+                "name": "Личный-состав",
+                "disabled": false
+            },
+            {
+                "name": "Высший-Состав",
+                "disabled": false
+            },
+            {
+                "name": "Заместитель Менеджера | НЕДОСТУПНО",
+                "disabled": true
+            },
+            {
+                "name": "Менеджер | НЕДОСТУПНО",
+                "disabled": true
+            }
+        ]
+    },
+
+    "rank": {
+        "data": [
+            {
+                "name": "user",
+                "disabled": false
+            },
+            {
+                "name": "vip",
+                "disabled": false
+            },
+            {
+                "name": "moderator",
+                "disabled": false
+            },
+            {
+                "name": "administrator",
+                "disabled": false
+            },
+            {
+                "name": "headadmin",
+                "disabled": false
+            },
+            {
+                "name": "supadmin",
+                "disabled": false
+            },
+            {
+                "name": "globaladmin",
+                "disabled": false
+            },
+            {
+                "name": "root | НЕДОСТУПНО",
+                "disabled": true
+            },
+            {
+                "name": "superadmin | НЕДОСТУПНО",
+                "disabled": true
+            }
+        ]
+    },
+
+    "mark": {
+        "data": [
+            {
+                "name": "+50",
+                "disabled": false
+            },
+            {
+                "name": "+100",
+                "disabled": false
+            },
+            {
+                "name": "+150",
+                "disabled": false
+            },
+            {
+                "name": "+250",
+                "disabled": false
+            },
+            {
+                "name": "+300",
+                "disabled": false
+            },
+            {
+                "name": "+500",
                 "disabled": false
             }
         ]
