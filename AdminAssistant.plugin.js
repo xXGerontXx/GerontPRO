@@ -5,7 +5,7 @@
  * @description Расширение, которое помогает Администрации для заполнения отчётов на серверах DarkRP.© Все права защищены Geront 2023
  * @source https://github.com/xXGerontXx/GerontPRO/blob/main/AdminAssistant.plugin.js
  * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/AdminAssistant.plugin.js
- * @website https://github.com/xXGerontXx/GerontPRO
+ * @website https://github.com/xXGerontXx/GerontPRO/tree/main/
  * @version 2.5
  */
 
