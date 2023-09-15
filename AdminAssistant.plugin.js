@@ -17,7 +17,7 @@ const config = {
   version: {
     "base": "2.5",
   },
-  base_url: "https://github.com/xXGerontXx/GerontPRO",
+  base_url: "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main",
 }
 const PluginSettings = {UpdateSystem: true};
 
