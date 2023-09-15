@@ -1,0 +1,16 @@
+{
+  "select-forms": [
+    {
+      "versions": "1.5.2",
+      "changelogs": "1. Добавлена возможность выбора меток"
+    },
+    {
+      "versions": "1.5.3",
+      "changelogs": "Что-то.."
+    },
+    {
+      "versions": "1.5.4",
+      "changelogs": "Что-то ещё.."
+    }
+  ]
+}
