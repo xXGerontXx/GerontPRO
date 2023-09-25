@@ -2,11 +2,10 @@
  * @name AdminAssistant
  * @author Geront
  * @authorId 303436607204098058
- * @description Расширение, которое помогает Администрации для заполнения отчётов на серверах DarkRP.© Все права защищены Geront 2023
+ * @description Расширение, которое помогает Администрации для заполнения отчётов на серверах DarkRP.
  * @source https://github.com/xXGerontXx/GerontPRO/blob/main/AdminAssistant.plugin.js
- * @updateUrl https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/AdminAssistant.plugin.js
  * @website https://github.com/xXGerontXx/GerontPRO/tree/main/
- * @version 2.8
+ * @version 1.6.2
  */
 
 "use strict";
@@ -15,7 +14,7 @@ const path = require('path');
 const request = require("request");
 const config = {
   version: {
-    "base": "2.8",
+    "base": "1.6.2",
   },
   base_url: "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main",
 }
@@ -51,7 +50,14 @@ function ShowFormModal({ rootProps }) {
   const [post, setPost] = useState("");
   const [rank, setRank] = useState("");
   const [mark, setMark] = useState("");
-  const [formReason, setReason] = useState("");
+  const [number, setNumber] = useState("");
+  const [nick, setNick] = useState("");
+  const [nick2, setNick2] = useState("");
+  const [steamid, setSteamID] = useState("");
+  const [term, setTerm] = useState("");
+  const [reason, setReason] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const [formatted, rendered] = useMemo(() => {
     const selectedFormat = Formats.find((f) => f.title === format);
@@ -59,234 +65,54 @@ function ShowFormModal({ rootProps }) {
   }, [format]);
 
 
-  function getResult(type = false) {
-    if (type) {
-      var result = "---";
+  function getFormattedResult() {
+    var result = formatted.value;
 
-      switch (format) {
-        case "Откат дейcтвия":
-        {
-          result = formatted.value.replace("{{reason}}", formReason);
-          break;
-        }
-        case "Прошёл проверку НКВД":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Прошёл обучение":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Повышен в ранге":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{rank}}", rank);
-          break;
-        }
-        case "Принят в отдел (ЛС-ВС)":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason).replace("{{rank}}", rank);
-          break;
-        }
-        case "Перевод в отдел Дневной/Ночной":
-        {
-          result = formatted.value.replace("{{post}}", post);
-          break;
-        }
-        case "Снятие с поста":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Выдать устное(ые) предупреждение(я)":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Выдать предупреждение(я)":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Снять предупреждение(я)":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Выдать выговор(ы)":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Снять выговор(ы)":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Выдать отпуск":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Снять отпуск":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Выдать метку":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{mark}}", mark).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Выдать рекомендацию":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Сгорает рекомендация":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Выдать соц. рейтинг":
-        {
-          result = formatted.value.replace("{{reason}}", formReason);
-          break;
-        }
-        case "Снять соц. рейтинг":
-        {
-          result = formatted.value.replace("{{reason}}", formReason);
-          break;
-        }
-        case "Выдать грань снятии":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-        case "Снять грань снятии":
-        {
-          result = formatted.value.replace("{{post}}", post).replace("{{reason}}", formReason);
-          break;
-        }
-  
-        case "Выдача банов":
-        {
-          result = formatted.value.replace("{{server}}", server).replace("{{reason}}", formReason).replace("{{timestamp}}", Math.floor(Date.now() / 1000));
-          break;
-        }
-      
-        default:
-        {
-          result = formatted.value
-          break;
-        }
+    if (result) {
+      if (result.includes("{{post}}")) {
+        result = result.replace("{{post}}", post);
       }
+      if (result.includes("{{rank}}")) {
+        result = result.replace("{{rank}}", rank);
+      }
+      if (result.includes("{{server}}")) {
+        result = result.replace("{{server}}", server);
+      }
+      if (result.includes("{{mark}}")) {
+        result = result.replace("{{mark}}", mark);
+      }
+      if (result.includes("{{number}}")) {
+        result = result.replace("{{number}}", number);
+      }
+      if (result.includes("{{reason}}")) {
+        result = result.replace("{{reason}}", reason);
+      }
+      if (result.includes("{{nick}}")) {
+        result = result.replace("{{nick}}", nick);
+      }
+      if (result.includes("{{nick_trigger}}")) {
+        result = result.replace("{{nick_trigger}}", nick2);
+      }
+      if (result.includes("{{steamid}}")) {
+        result = result.replace("{{steamid}}", steamid);
+      }
+      if (result.includes("{{term}}")) {
+        result = result.replace("{{term}}", term);
+      }
+      if (result.includes("{{s_date}}")) {
+        result = result.replace("{{s_date}}", startDate);
+      } 
+      if (result.includes("{{e_date}}")) {
+        result = result.replace("{{e_date}}", endDate);
+      } 
+      if (result.includes("{{timestamp}}")) {
+        result = result.replace("{{timestamp}}", Math.floor(Date.now() / 1000));
+      }
+      
+      return result;
     } else {
-      var result = false;
-
-      switch (format) {
-        case "Откат дейcтвия":
-        {
-          result = true;
-          break;
-        }
-        case "Принят в отдел (ЛС-ВС)":
-        {
-          result = true;
-          break;
-        }
-        case "Снятие с поста":
-        {
-          result = true;
-          break;
-        }
-        case "Выдать устное(ые) предупреждение(я)":
-        {
-          result = true;
-          break;
-        }
-        case "Выдать предупреждение(я)":
-        {
-          result = true;
-          break;
-        }
-        case "Снять предупреждение(я)":
-        {
-          result = true;
-          break;
-        }
-        case "Выдать выговор(ы)":
-        {
-          result = true;
-          break;
-        }
-        case "Снять выговор(ы)":
-        {
-          result = true;
-          break;
-        }
-        case "Выдать отпуск":
-        {
-          result = true;
-          break;
-        }
-        case "Снять отпуск":
-        {
-          result = true;
-          break;
-        }
-        case "Выдать метку":
-        {
-          result = true;
-          break;
-        }
-        case "Выдать рекомендацию":
-        {
-          result = true;
-          break;
-        }
-        case "Закончилась рекомендация":
-        {
-          result = true;
-          break;
-        }
-        case "Выдать соц. рейтинг":
-        {
-          result = true;
-          break;
-        }
-        case "Снять соц. рейтинг":
-        {
-          result = true;
-          break;
-        }
-        case "Выдать грань снятии":
-        {
-          result = true;
-          break;
-        }
-        case "Снять грань снятии":
-        {
-          result = true;
-          break;
-        }
-
-        case "Выдача банов":
-        {
-          result = true;
-          break;
-        }
-      
-        default:
-        {
-          result = false;
-          break;
-        }
-      }
+      return "Похоже, произошла ошибка..";
     }
-
-    return result;
   }
 
   return BdApi.React.createElement(
@@ -318,7 +144,7 @@ function ShowFormModal({ rootProps }) {
           renderOptionValue: () => rendered
         }
       ),
-      (format == "Выдача банов") ? BdApi.React.createElement(
+      (formatted.value && formatted.value.includes("{{server}}")) ? BdApi.React.createElement(
         Select,
         {
           placeholder: "Выберите сервер",
@@ -335,7 +161,7 @@ function ShowFormModal({ rootProps }) {
           renderOptionValue: () => server,
         }
       ) : null,
-      (format == "Прошёл проверку НКВД" && format == "Прошёл обучение" && format == "Принят в отдел (ЛС-ВС)" && format == "Повышен в ранге" && format == "Снятие с поста" && format == "Перевод в отдел Дневной/Ночной" && format == "Выдать устное(ые) предупреждение(я)" && format == "Выдать предупреждение(я)" && format == "Снять предупреждение(я)" && format == "Выдать выговор(ы)" && format == "Снять выговор(ы)" && format == "Выдать отпуск" && format == "Снять отпуск" && format == "Выдать метку" && format == "Выдать рекомендацию" && format == "Сгорает рекомендация" && format == "Выдать грань снятии" && format == "Снять грань снятии") ? BdApi.React.createElement(
+      (formatted.value && formatted.value.includes("{{post}}")) ? BdApi.React.createElement(
         Select,
         {
           placeholder: "Выберите должность человека",
@@ -352,7 +178,7 @@ function ShowFormModal({ rootProps }) {
           renderOptionValue: () => post,
         }
       ) : null,
-      (format == "Прошёл обучение" || format == "Повышен в ранге" || format == "Принят в отдел (ЛС-ВС)") ? BdApi.React.createElement(
+      (formatted.value && formatted.value.includes("{{rank}}")) ? BdApi.React.createElement(
         Select,
         {
           placeholder: "Выберите ранг",
@@ -369,7 +195,7 @@ function ShowFormModal({ rootProps }) {
           renderOptionValue: () => rank,
         }
       ) : null,
-      (format == "Выдать метку") ? BdApi.React.createElement(
+      (formatted.value && formatted.value.includes("{{mark}}")) ? BdApi.React.createElement(
         Select,
         {
           placeholder: "Выберите метку",
@@ -386,7 +212,107 @@ function ShowFormModal({ rootProps }) {
           renderOptionValue: () => mark,
         }
       ) : null,
-      (getResult()) ? BdApi.React.createElement(
+      (formatted.value && formatted.value.includes("{{s_date}}")) ? (BdApi.React.createElement(
+        "div",
+        null,
+        BdApi.React.createElement(FormTitle, null, "Дата начала"),
+        BdApi.React.createElement(
+          "input",
+          {
+            type: "datetime-local",
+            step: "60",
+            onChange: (v) => {
+              const inputValue = v.target.value;
+              const dateTime = new Date(inputValue);
+              const formattedDate = dateTime.toLocaleDateString('ru-RU', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+              });
+              const formattedTime = dateTime.toLocaleTimeString('ru-RU', {
+                hour: 'numeric',
+                minute: 'numeric',
+              });
+              const formattedValue = `${formattedDate} ${formattedTime}`;
+              setStartDate(formattedValue);
+            },
+            style: {
+              marginTop: "0"
+            }
+          }
+        )
+      )) : null,
+      (formatted.value && formatted.value.includes("{{e_date}}")) ? (BdApi.React.createElement(
+        "div",
+        null,
+        BdApi.React.createElement(FormTitle, null, "Дата окончания"),
+        BdApi.React.createElement(
+          "input",
+          {
+            type: "datetime-local",
+            step: "60",
+            onChange: (v) => {
+              const inputValue = v.target.value;
+              const dateTime = new Date(inputValue);
+              const formattedDate = dateTime.toLocaleDateString('ru-RU', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+              });
+              const formattedTime = dateTime.toLocaleTimeString('ru-RU', {
+                hour: 'numeric',
+                minute: 'numeric',
+              });
+              const formattedValue = `${formattedDate} ${formattedTime}`;
+              setEndDate(formattedValue);
+            },
+            style: {
+              marginTop: "0"
+            }
+          }
+        )
+      )) : null,
+      (formatted.value && formatted.value.includes("{{number}}")) ? BdApi.React.createElement(
+        "input",
+        {
+          type: "number",
+          placeholder: "Введите количество",
+          onChange: (v) => setNumber(v['target'].value),
+        }
+      ) : null,
+      (formatted.value && formatted.value.includes("{{nick}}")) ? BdApi.React.createElement(
+        "input",
+        {
+          type: "text",
+          placeholder: "Введите ник",
+          onChange: (v) => setNick(v['target'].value),
+        }
+      ) : null,
+      (formatted.value && formatted.value.includes("{{nick_trigger}}")) ? BdApi.React.createElement(
+        "input",
+        {
+          type: "text",
+          placeholder: "Введите ник цели",
+          onChange: (v) => setNick2(v['target'].value),
+        }
+      ) : null,
+      (formatted.value && formatted.value.includes("{{steamid}}")) ? BdApi.React.createElement(
+        "input",
+        {
+          type: "text",
+          placeholder: "Введите SteamID",
+          onChange: (v) => setSteamID(v['target'].value),
+        }
+      ) : null,
+      (formatted.value && formatted.value.includes("{{term}}")) ? BdApi.React.createElement(
+        "input",
+        {
+          type: "text",
+          placeholder: "Введите срок",
+          onChange: (v) => setTerm(v['target'].value),
+        }
+      ) : null,
+      (formatted.value && formatted.value.includes("{{reason}}")) ? BdApi.React.createElement(
         "input",
         {
           type: "text",
@@ -407,9 +333,10 @@ function ShowFormModal({ rootProps }) {
               searchExports: true
             });
             ComponentDispatch.dispatchToLastSubscribed("INSERT_TEXT", {
-              rawText: getResult(true),
-              plainText: getResult(true)
+              rawText: getFormattedResult(),
+              plainText: getFormattedResult()
             });
+
             rootProps.onClose();
           }
         },
@@ -440,7 +367,7 @@ function ShowCreateFormModal({ rootProps }) {
         "input",
         {
           type: "text",
-          placeholder: "Введите название формы",
+          placeholder: "Название формы | ДЕЛАЙ УНИКАЛЬНЫМ",
           onChange: (v) => setName(v['target'].value),
         }
       ),
@@ -461,7 +388,7 @@ function ShowCreateFormModal({ rootProps }) {
           },
           contentEditable: true,
           onInput: (e) => setFormat(e.target.innerText),
-        }, "Введите текст формы (для переноса строки используйте клавишу ` Space `(Пробел))"
+        }, "Текст формы\n(доступно к использованию форматирования дискорда, так-же для переноса строки используйте пробел)"
       )
     ),
     BdApi.React.createElement(
@@ -604,55 +531,55 @@ function checkUpdate(curr_version, thisIsIntervalCheck = false) {
 
 
 var styles_default = `.vbd-its-modal-content input {
-    background-color: var(--input-background);
-    color: var(--text-normal);
-    width: 95%;
-    padding: 8px 8px 8px 12px;
-    margin: 1em 0;
-    outline: none;
-    border: 1px solid var(--input-background);
-    border-radius: 4px;
-    font-weight: 500;
-    font-style: inherit;
-    font-size: 100%;
+  background-color: var(--input-background);
+  color: var(--text-normal);
+  width: 95%;
+  padding: 8px 8px 8px 12px;
+  margin: 1em 0;
+  outline: none;
+  border: 1px solid var(--input-background);
+  border-radius: 4px;
+  font-weight: 500;
+  font-style: inherit;
+  font-size: 100%;
 }
 
 .vbd-its-format-label,
 .vbd-its-format-label span {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .vbd-its-modal-content [class|="select"] {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .vbd-its-modal-content [class|="select"] span {
-    background-color: var(--input-background);
+  background-color: var(--input-background);
 }
 
 .vbd-its-modal-header {
-    justify-content: space-between;
-    align-content: center;
+  justify-content: space-between;
+  align-content: center;
 }
 
 .vbd-its-modal-header h1 {
-    margin: 0;
+  margin: 0;
 }
 
 .vbd-its-modal-header button {
-    padding: 0;
+  padding: 0;
 }
 
 .vbd-its-preview-text {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .vbd-its-button {
-    padding: 0 6px;
+  padding: 0 6px;
 }
 
 .vbd-its-button svg {
-    transform: scale(1.1) translateY(1px);
+  transform: scale(1.1) translateY(1px);
 }
 `;
 
@@ -745,8 +672,6 @@ function loadForms(refresh = false) {
               const form = JSON.parse(data)['forms'];
 
               if (form.length > 0) {
-                console.log(form.length);
-
                 for (let i = 0; i < form.length; i++) {
                   const existingIndex = Formats.findIndex(item => item.title === form[i]['title']);
 
@@ -785,12 +710,12 @@ function loadCustomForms(notify = false) {
     "forms": [
       {
         "title": "Пример 1",
-        "value": "Какой-то текст",
+        "value": "Примерочная форма #1",
         "disabled": false
       },
       {
         "title": "Пример 2",
-        "value": "Какой-то текст #2",
+        "value": "Примерочная форма #2",
         "disabled": false
       }
     ]
@@ -976,20 +901,20 @@ module.exports = meta => {
       checkUpdateFormButton.addEventListener("click", () => checkUpdate(config.version['base'], true));
       SettingsPanel.appendChild(checkUpdateFormButton);
 
-      const restartPluginDiv = document.createElement("div");
-      restartPluginDiv.style.position = "relative";
-      restartPluginDiv.style.marginTop = "15px";
+      const autoupdatePluginDiv = document.createElement("div");
+      autoupdatePluginDiv.style.position = "relative";
+      autoupdatePluginDiv.style.marginTop = "15px";
 
-      const restartPluginCheckbox = document.createElement("input");
-      restartPluginCheckbox.type = "checkbox";
-      restartPluginCheckbox.id = "restartPluginCheckbox";
-      restartPluginCheckbox.checked = (PluginSettings["UpdateSystem"]) ? true : false;
+      const autoupdatePluginCheckbox = document.createElement("input");
+      autoupdatePluginCheckbox.type = "checkbox";
+      autoupdatePluginCheckbox.id = "autoupdatePluginCheckbox";
+      autoupdatePluginCheckbox.checked = (PluginSettings["UpdateSystem"]) ? true : false;
 
-      restartPluginDiv.appendChild(restartPluginCheckbox);
-      SettingsPanel.appendChild(restartPluginDiv);
+      autoupdatePluginDiv.appendChild(autoupdatePluginCheckbox);
+      SettingsPanel.appendChild(autoupdatePluginDiv);
 
       const label = document.createElement("label");
-      label.setAttribute("for", "restartPluginCheckbox");
+      label.setAttribute("for", "autoupdatePluginCheckbox");
       label.style.position = "relative";
       label.textContent = `Предлагать новые обновления | ${((PluginSettings["UpdateSystem"]) ? 'ВКЛ' : 'ВЫКЛ')}`;
       SettingsPanel.appendChild(label);
@@ -999,7 +924,7 @@ module.exports = meta => {
         color: #fff;
       `;
 
-      restartPluginCheckbox.style.cssText = checkboxStyle;
+      autoupdatePluginCheckbox.style.cssText = checkboxStyle;
 
       const labelStyleOFF = `
         position: relative;
@@ -1027,27 +952,24 @@ module.exports = meta => {
         padding: 1rem 3rem;
         margin-top: 15px;
       `;
-
       label.style.cssText = (PluginSettings["UpdateSystem"]) ? labelStyleON : labelStyleOFF;
 
+      autoupdatePluginCheckbox.addEventListener("change", function () {
+        if (this.checked) {
+          label.style.cssText = labelStyleON;
+          label.textContent = "Предлагать новые обновления | ВКЛ";
+          PluginSettings["UpdateSystem"] = true;
 
-      restartPluginCheckbox.addEventListener("change", function () {
-          if (this.checked) {
-            label.style.cssText = labelStyleON;
-            label.textContent = "Предлагать новые обновления | ВКЛ";
-            PluginSettings["UpdateSystem"] = true;
+          BdApi.showToast("Предложение об обновлении, будет отображаться при запуске плагина!", { type: "success" });
+        } else {
+          label.style.cssText = labelStyleOFF;
+          label.textContent = "Предлагать новые обновления | ВЫКЛ";
+          PluginSettings["UpdateSystem"] = false;
 
-            BdApi.showToast("Предложение об обновлении, будет отображаться при запуске плагина!", { type: "success" });
-          } else {
-            label.style.cssText = labelStyleOFF;
-            label.textContent = "Предлагать новые обновления | ВЫКЛ";
-            PluginSettings["UpdateSystem"] = false;
+          BdApi.showToast("Предложение об обновлении, больше не будет отображаться при запуске плагина!", { type: "warning" });
+        }
 
-            BdApi.showToast("Предложение об обновлении, больше не будет отображаться при запуске плагина!", { type: "warning" });
-          }
-
-          
-          BdApi.Data.save(meta.name, "settings", PluginSettings);
+        BdApi.Data.save(meta.name, "settings", PluginSettings);
       });
 
       return SettingsPanel;
