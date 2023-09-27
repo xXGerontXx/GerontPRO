@@ -5,7 +5,7 @@
  * @description Расширение, которое помогает Администрации для заполнения отчётов на серверах DarkRP.
  * @source https://github.com/xXGerontXx/GerontPRO/blob/main/AdminAssistant.plugin.js
  * @website https://github.com/xXGerontXx/GerontPRO/tree/main/
- * @version 1.6.4
+ * @version 1.6.3
  */
 
 "use strict";
@@ -14,7 +14,7 @@ const path = require('path');
 const request = require("request");
 const config = {
   version: {
-    "base": "1.6.4",
+    "base": "1.6.3",
   },
   base_url: "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main",
 }
