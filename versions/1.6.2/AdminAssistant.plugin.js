@@ -488,7 +488,7 @@ function checkUpdate(curr_version, thisIsIntervalCheck = false) {
           if (curr_version < latestVersion) {
             BdApi.showConfirmationModal(
               "AdminAssistant | Новое обновление!",
-              `Ваша версия: \`${curr_version}\` | Новая версия: \`${latestVersion}\`\n\n\`СПИСОК ИЗМЕНЕНИЙ:\`\n\n${changelogs}\n\n> *\`ВАЖНО!\` Если вы заметили ошибки, баги, недоработки или что-либо подобное, пожалуйста, сообщите о них @geront*`,
+              `Ваша версия: \`${curr_version}\` | Новая версия: \`${latestVersion}\`\n\n\`СПИСОК ИЗМЕНЕНИЙ:\`\n\n${changelogs}\n\n> *\`ВАЖНО!\` Если вы заметили ошибки, баги, недоработки или что-либо подобное, пожалуйста, сообщите о них __@geront__*`,
               {
                 confirmText: "Установить",
                 cancelText: "Отменить",
