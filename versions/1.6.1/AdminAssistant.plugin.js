@@ -1,11 +1,11 @@
 /**
- * @name SelectFormForAdminRank
- * @author Котяра
- * @authorId 701903800302305371
- * @description Готовые формы для админ-рангов
- * @source https://github.com/KotyaraDev/betterdiscord-mods/blob/main/SelectFormForAdminRank.plugin.js
- * @website https://github.com/KotyaraDev/betterdiscord-mods/tree/main/
- * @version 1.6.1
+ * @name AdminAssistant
+ * @author Geront
+ * @authorId 303436607204098058
+ * @description Расширение, которое помогает Администрации для заполнения отчётов на серверах DarkRP.
+ * @source https://github.com/xXGerontXx/GerontPRO/blob/main/AdminAssistant.plugin.js
+ * @website https://github.com/xXGerontXx/GerontPRO/tree/main/
+ * @version 1.6.4
  */
 
 "use strict";
@@ -16,7 +16,7 @@ const config = {
   version: {
     "base": "1.6.1",
   },
-  base_url: "https://raw.githubusercontent.com/KotyaraDev/betterdiscord-mods/main",
+  base_url: "https://github.com/xXGerontXx/GerontPRO/blob/main",
 }
 const PluginSettings = {UpdateSystem: true};
 
@@ -397,14 +397,14 @@ function ShowCreateFormModal({ rootProps }) {
         {
           disabled: ((!name || !format) ? true : false),
           onClick: () => {
-            const customFormFields = BdApi.getData("SelectFormForAdminRank", "forms");
+            const customFormFields = BdApi.getData("AdminAssistant", "forms");
             const newForm = {
                 title: name,
                 value: format,
                 disabled: false,
             };
             customFormFields.push(newForm);
-            BdApi.setData("SelectFormForAdminRank", "forms", customFormFields);
+            BdApi.setData("AdminAssistant", "forms", customFormFields);
             rootProps.onClose();
             
             BdApi.showToast("Начинаем перезагружать кастомные формы\nПожалуйста подождите..", {type: "info"});
@@ -485,8 +485,8 @@ function checkUpdate(curr_version, thisIsIntervalCheck = false) {
 
           if (curr_version < latestVersion) {
             BdApi.showConfirmationModal(
-              "SelectFormForAdminRank | Новое обновление!",
-              `Ваша версия: \`${curr_version}\` | Новая версия: \`${latestVersion}\`\n\n\`СПИСОК ИЗМЕНЕНИЙ:\`\n\n${changelogs}\n\n> *\`ВАЖНО!\` Если вы заметили ошибки, баги, недоработки или что-либо подобное, пожалуйста, сообщите о них __@kotyarakryt__*`,
+              "AdminAssistant | Новое обновление!",
+              `Ваша версия: \`${curr_version}\` | Новая версия: \`${latestVersion}\`\n\n\`СПИСОК ИЗМЕНЕНИЙ:\`\n\n${changelogs}\n\n> *\`ВАЖНО!\` Если вы заметили ошибки, баги, недоработки или что-либо подобное, пожалуйста, сообщите о них __@geront__*`,
               {
                 confirmText: "Установить",
                 cancelText: "Отменить",
@@ -494,7 +494,7 @@ function checkUpdate(curr_version, thisIsIntervalCheck = false) {
                   BdApi.showToast("Начинаем загрузку обновления..", { type: "info" });
 
                   request.get(
-                    config.base_url+"/versions/"+latestVersion+"/SelectFormForAdminRank.plugin.js",
+                    config.base_url+"/versions/"+latestVersion+"/AdminAssistant.plugin.js",
                     (error, response, body) => {
                       if (error) {
                         BdApi.showToast(`Ошибка при загрузке: ${error}`, { type: "error" });
@@ -503,7 +503,7 @@ function checkUpdate(curr_version, thisIsIntervalCheck = false) {
 
                       if (response.statusCode == 200) {
                         fs.writeFileSync(
-                          path.join(BdApi.Plugins.folder, "SelectFormForAdminRank.plugin.js"),
+                          path.join(BdApi.Plugins.folder, "AdminAssistant.plugin.js"),
                           body
                         );
 
@@ -649,8 +649,8 @@ function loadForms(refresh = false) {
         }
 
         // CUSTOM FORM`S
-        if (fs.existsSync(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json")) {
-          fs.readFile(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json", 'utf8', function(err, data) {
+        if (fs.existsSync(BdApi.Plugins.folder+"\\"+"AdminAssistant.config.json")) {
+          fs.readFile(BdApi.Plugins.folder+"\\"+"AdminAssistant.config.json", 'utf8', function(err, data) {
             if (err) {
               setTimeout(() => {
                 BdApi.showToast("Кастомные форма не загружены!\n"+err, { type: "error" })
@@ -697,7 +697,7 @@ function loadForms(refresh = false) {
           }
         }, 500);
       } else {
-        BdApi.showToast(`Формы не загружены!\nСообщите об этом разработчику: @kotyarakryt`, { type: "error" });
+        BdApi.showToast(`Формы не загружены!\nСообщите об этом разработчику: @geront`, { type: "error" });
       }
     }
   );
@@ -720,8 +720,8 @@ function loadCustomForms(notify = false) {
   }
 
   // LOAD CUSTOM FORM`S
-  if (!fs.existsSync(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json")) {
-    fs.writeFile(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json", JSON.stringify(standartCustomForm, null, 2), (err) => {
+  if (!fs.existsSync(BdApi.Plugins.folder+"\\"+"AdminAssistant.config.json")) {
+    fs.writeFile(BdApi.Plugins.folder+"\\"+"AdminAssistant.config.json", JSON.stringify(standartCustomForm, null, 2), (err) => {
       if (err) {
         setTimeout(() => {
           if (notify) {
@@ -743,7 +743,7 @@ function loadCustomForms(notify = false) {
     BdApi.showToast("Начинаем загрузку кастомных форм..", {type: "info"});
 
     setTimeout(() => {
-      fs.readFile(BdApi.Plugins.folder+"\\"+"SelectFormForAdminRank.config.json", 'utf8', function(err, data) {
+      fs.readFile(BdApi.Plugins.folder+"\\"+"AdminAssistant.config.json", 'utf8', function(err, data) {
         if (err) {
           setTimeout(() => {
             if (notify) {
@@ -790,10 +790,10 @@ function loadCustomForms(notify = false) {
 }
 
 function clearFormData() {
-  const customFormFields = BdApi.getData("SelectFormForAdminRank", "forms");
+  const customFormFields = BdApi.getData("AdminAssistant", "forms");
   if (Array.isArray(customFormFields)) {
     customFormFields.length = 0;
-    BdApi.setData("SelectFormForAdminRank", "forms", customFormFields);
+    BdApi.setData("AdminAssistant", "forms", customFormFields);
   }
   BdApi.showToast("Все кастомные форма были очищены!", { type: "warning" });
   setTimeout(() => {
@@ -830,7 +830,7 @@ module.exports = meta => {
           (n) => Array.isArray(n?.children) && n.children.some((c) => c?.props?.className?.startsWith("attachButton"))
         )?.children;
         if (!chatBar) {
-          console.error("SelectFormForAdminRank: Couldn't find ChatBar component in React tree");
+          console.error("AdminAssistant: Couldn't find ChatBar component in React tree");
           return;
         }
         const buttons = findInReactTree(chatBar, (n) => n?.props?.showCharacterCount);
