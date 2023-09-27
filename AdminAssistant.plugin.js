@@ -16,7 +16,7 @@ const config = {
   version: {
     "base": "1.6.3",
   },
-  base_url: "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main",
+  base_url: "https://raw.githubusercontent.com/xXGerontXx/GerontPRO/main/AdminAssistant.plugin.js",
 }
 const PluginSettings = {UpdateSystem: true};
 
